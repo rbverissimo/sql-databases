@@ -4,9 +4,14 @@ connection = sqlite3.connect('customers.db')
 cursor = connection.cursor()
 
 # create a new table in customers db
-cursor.execute('create table products (name_product text, product_id text)')
+cursor.execute('create table job_type (type text, job_id text)')
 # inserting a single piece of data
-cursor.execute("insert into products values (?,?)", ("Cooking Lessons", "0789"))
+
+job_type_list = [("Communication", "0001"),
+                 ("Finance", "0002"),
+                 ("Services", "0003")]
+
+cursor.executemany("insert into job_type values (?,?)", job_type_list)
 
 connection.commit()
 
