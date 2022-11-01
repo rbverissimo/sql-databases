@@ -14,4 +14,6 @@ customer_list = [(1998, "Anivaldo Soares", "Plumber"),
 
 cursor.executemany('insert into customers values(?,?,?)', customer_list)
 
+connection.commit()  # the transaction needs to be committed
+
 connection.close()
