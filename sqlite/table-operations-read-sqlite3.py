@@ -7,7 +7,6 @@ cursor = connection.cursor()
 for row in cursor.execute('select * from customers'):
     print(row)
 
-
 print("\n")
 
 # reading specific rows
@@ -19,5 +18,10 @@ job_type_search = cursor.fetchall()
 
 print("\n")
 print(job_type_search)
+
+# note that it doesn't alter the database itself
+for i in journalist_search:
+    new_line =[job_type_search[0][0] if value == "Journalist" else value for value in i]
+    print(new_line)
 
 connection.close()
