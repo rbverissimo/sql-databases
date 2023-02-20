@@ -1,9 +1,8 @@
-from inquilinoDAO import inserirNovosInquilinos
+from inquilinoDAO import *
+from propriedadesDAO import *
 
 
 def main():
-    listaParaInserir = [(3, 'Danila'), (4, 'Ezequiel'), (5, 'Paulinho')]
-    inserirNovosInquilinos(listaParaInserir)
 
 
 if __name__ == "__main__":

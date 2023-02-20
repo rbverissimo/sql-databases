@@ -32,8 +32,8 @@ def buscarInquilinosPorId(id):
         cursor = sqliteConnection.cursor()
         print('Conectado ao banco de dados')
 
-        sql_select_id = """select * from inqulinos where id = ?"""
-        cursor.execute(sql_select_id, id)
+        sql_select_id = """select * from inquilinos where id = ?"""
+        cursor.execute(sql_select_id, (id,))
         resultado = cursor.fetchall()
         print('Id buscado:', id)
 
