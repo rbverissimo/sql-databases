@@ -1,10 +1,7 @@
-from inquilinoDAO import *
-from propriedadesDAO import *
-
+from PropriedadesDDL import *
 
 def main():
-    buscarTodosInquilinos()
-    buscarTodasPropriedades()
+    createTablePropriedades()
 
 if __name__ == "__main__":
     main()
