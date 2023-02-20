@@ -1,7 +1,5 @@
-from PropriedadesDDL import *
-
 def main():
-    createTablePropriedades()
+    pass
 
 if __name__ == "__main__":
     main()

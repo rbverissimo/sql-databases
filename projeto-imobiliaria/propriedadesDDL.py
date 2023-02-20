@@ -1,7 +1,7 @@
 import sqlite3
 
 
-def dropTablePropriedades():
+def dropTabelaPropriedades():
     try:
         sqliteConnection = sqlite3.connect('imobiliaria.db')
         cursor = sqliteConnection.cursor()
@@ -19,7 +19,7 @@ def dropTablePropriedades():
             sqliteConnection.close()
             print('Conexão fechada com o banco de dados')
 
-def dropTablePropriedadesOld():
+def dropTabelaPropriedadesOld():
     try:
         sqliteConnection = sqlite3.connect('imobiliaria.db')
         cursor = sqliteConnection.cursor()
@@ -38,7 +38,7 @@ def dropTablePropriedadesOld():
             print('Conexão fechada com o banco de dados')
 
 
-def createTablePropriedades():
+def criarTabelaPropriedades():
     try:
         sqliteConnection = sqlite3.connect('imobiliaria.db')
         cursor = sqliteConnection.cursor()
