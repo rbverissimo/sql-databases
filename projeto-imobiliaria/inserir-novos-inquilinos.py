@@ -1,22 +1,20 @@
 import sqlite3
 
-try:
-    sqliteConn = sqlite3.connect('imobiliaria.db')
-    cursor = sqliteConn.cursor()
-    print('Conexão com o banco de dados realizada')
 
-    sql = """insert into inquilinos (nome) values (?)"""
-    data = ('Agmar')
-    cursor.execute(sql, data)
-    sqliteConn.commit()
-    print('Entrada de dados feita com sucesso')
+def inserirNovosInquilinos(listaDeInquilinos):
 
-    cursor.close()
 
-except sqlite3.Error as error:
-    print('Failed to insert', error)
-finally:
-    if sqliteConn:
-        sqliteConn.close()
-        print('Conexão com banco de dados fechada')
+    try:
+        sqliteConnection = sqlite3.connect('imobiliaria.db')
+        cursor = sqliteConnection.cursor()
+        print('Conectado ao banco de dados')
 
+        sql_query = """insert into inquilinos(nome) values(?)"""
+
+
+    except sqlite3.Error as error:
+        print('Falha ao inserir várias colunas')
+    finally:
+        if sqliteConnection:
+            sqliteConnection.close()
+            print('Conexão com o banco de dados fechada')
