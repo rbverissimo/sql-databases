@@ -25,6 +25,7 @@ def buscarTodosInquilinos():
             sqliteConnection.close()
             print('Conexão fechada')
 
+
 def buscarInquilinosPorId(id):
     try:
         sqliteConnection = sqlite3.connect('imobiliaria.db')
