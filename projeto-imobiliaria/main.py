@@ -1,13 +1,8 @@
-from contasDDL import *
-from anoDDL import *
+from inquilinoDDL import *
 
 def main():
-    dropTabelaContas()
-    dropTabelaAnos()
-    criarTabelaAno()
-    criarTabelaContas()
+    alterarTabelaInquilinosAdicionandoColuna()
 
-    
 
 if __name__ == "__main__":
     main()
