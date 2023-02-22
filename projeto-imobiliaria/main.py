@@ -1,7 +1,8 @@
-from inquilinoDDL import *
+from contasInquilinosDDL import *
+
 
 def main():
-    alterarTabelaInquilinosAdicionandoColuna()
+    criarTabelasContasInquilinos()
 
 
 if __name__ == "__main__":
