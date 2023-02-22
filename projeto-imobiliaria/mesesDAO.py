@@ -1,6 +1,29 @@
 import sqlite3
 
 
+def buscarMesPorId(id):
+    try:
+        sqliteConnection = sqlite3.connect('imobiliaria.db')
+        cursor = sqliteConnection.cursor()
+        print('Conectado ao banco de dados')
+
+        sql_select_id = """select * from meses where id = ?"""
+        cursor.execute(sql_select_id, (id,))
+        resultado = cursor.fetchall()
+        print('Id buscado:', id)
+
+        for r in resultado:
+            print('Mês:', r[1])
+
+        cursor.close()
+    except sqlite3.Error as error:
+        print('Leitura não realizada: ', error)
+    finally:
+        if sqliteConnection:
+            sqliteConnection.close()
+            print('Conexão fechada')
+
+
 def buscarTodosOsMeses():
     try:
         sqliteConnection = sqlite3.connect('imobiliaria.db')
@@ -44,3 +67,4 @@ def inserirNovosMeses(listaDeMeses):
         if sqlite_connection:
             sqlite_connection.close()
             print('Conexão com o banco de dados fechada')
+
