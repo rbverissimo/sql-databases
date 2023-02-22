@@ -24,15 +24,14 @@ def buscarAnoPorId(ano):
             print('Conexão fechada')
 
 
-def inserirNovoAno(id, ano):
+def inserirNovoAno(ano):
     try:
         sqlite_connection = sqlite3.connect('imobiliaria.db')
         cursor = sqlite_connection.cursor()
         print('Conexão com o banco de dados realizada')
 
-        sql = """insert into anos (id, ano) values (?, ?)"""
-        data = (id, ano)
-        cursor.execute(sql, data)
+        sql = """insert into anos (ano) values (?)"""
+        cursor.execute(sql, (ano,))
         sqlite_connection.commit()
         print('Entrada de dados feita com sucesso')
 
