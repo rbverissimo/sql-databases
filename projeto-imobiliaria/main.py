@@ -1,9 +1,10 @@
 from inquilinoDAO import *
+from contasInquilinosDAO import *
 
 def main():
-    lista = [(330, 1), (550, 2), (550, 3), (440, 4), (550, 5)]
-    atualizarAluguelInquilinosPorLista(lista)
-    buscarTodosInquilinos()
+    lista = [(110, 100, 2023, 2, 1), (150, 105, 2023, 2, 3), (140, 110, 2023, 2, 4), (140, 110, 2023, 2, 5)]
+    inserirNovosRegistrosDeContasInquilinosPorLista(lista)
+    buscarTodasContasInquilinos()
 
 
 if __name__ == "__main__":
