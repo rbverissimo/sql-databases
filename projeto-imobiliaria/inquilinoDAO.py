@@ -112,3 +112,24 @@ def atualizarAluguelInquilinoPorId(id, aluguel):
         if sqlite_connection:
             sqlite_connection.close()
             print('Conexão finalizada')
+
+
+def atualizarAluguelInquilinosPorLista(listaDeInquilinos):
+    try:
+        sqlite_connection = sqlite3.connect('imobiliaria.db')
+        cursor = sqlite_connection.cursor()
+        print('Conectado ao banco de dados')
+
+        sql_update_multiplo = """update inquilinos set aluguel = ? where id = ?"""
+        cursor.executemany(sql_update_multiplo, listaDeInquilinos)
+        sqlite_connection.commit()
+        print(cursor.rowcount, ' registros alterados com sucesso')
+        sqlite_connection.commit()
+        cursor.close()
+
+    except sqlite3.Error as error:
+        print('Falha ao tentar alterar múltiplos registros na tabela inquilinos: ', error)
+    finally:
+        if sqlite_connection:
+            sqlite_connection.close()
+            print('Conexao com banco de dados fechada')
