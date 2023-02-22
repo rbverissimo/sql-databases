@@ -15,6 +15,7 @@ def buscarTodosInquilinos():
         for r in resultado:
             print('Id:', r[0])
             print('Nome: ', r[1])
+            print('Aluguel', r[2])
             print('\n')
 
         cursor.close()
@@ -39,6 +40,7 @@ def buscarInquilinosPorId(id):
 
         for r in resultado:
             print('Nome', r[1])
+            print('Aluguel', r[2])
 
         cursor.close()
     except sqlite3.Error as error:
@@ -90,3 +92,23 @@ def inserirNovosInquilinos(listaDeInquilinos):
         if sqlite_connection:
             sqlite_connection.close()
             print('Conexão com o banco de dados fechada')
+
+
+def atualizarAluguelInquilinoPorId(id, aluguel):
+    try:
+        sqlite_connection = sqlite3.connect('imobiliaria.db')
+        cursor = sqlite_connection.cursor()
+        print('Conectado ao banco de dados')
+
+        sql_update = """update inquilinos set aluguel = ? where id = ?"""
+        data = (aluguel, id)
+        cursor.execute(sql_update, data)
+        sqlite_connection.commit()
+        print("Registro atualizado com sucesso")
+        cursor.close()
+    except sqlite3.Error as error:
+        print('Atualização de inquilino falhou: ', error)
+    finally:
+        if sqlite_connection:
+            sqlite_connection.close()
+            print('Conexão finalizada')
